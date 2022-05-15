@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="music.css">
+  <script src="https://kit.fontawesome.com/02e45ba660.js" crossorigin="anonymous"></script>
+ <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+     <title> music</title>
+</head>
+<body>
+  
+
+  <!--box--->
+  <div class="player">
+    <div class="header">
+      <a href="#" class="button">
+        <i class="fas fa-align-justify"></i>
+        </a>
+        <p> Now playing </p>
+
+        <a href="#" class="button">
+          <i class="fas fa-window-close" onclick="exit()"></i>
+          
+          </a>
+      </div>
+
+<!--box--->
+
+      <div>
+        <img src="butter.jpg" id="image">
+         </div>
+
+<div class="information">
+  <h1 id="playlist_status"> status</h1>
+  <p id="playlist_artist"> a</p>
+</div>
+
+
+<div class="progress">
+  <div class="progress-time">
+    <span class="left" id="current-time">00:00</span>
+    <span class="left" id="current-time">00:00</span>
+
+  </div>
+  </div>
+
+
+
+  <div class="buttons">
+
+
+
+<span id="shuffle" class="shuffle_button">
+      <i class="fas fa-random"></i>
+      </span>
+
+    <span id="prevbtn" class="prev_button" onclick="prev()">
+      <i class="fas fa-backward"></i>
+      </span>
+      
+    
+       <span onclick="playpause()"> <i  id="change" class="fas fa-play" ></i></span>
+     
+ 
+
+      <span id="forwdbtn" class="forwd_button" onclick="next()">
+     <i class="fas fa-forward"></i>
+      </span>
+
+
+      <span id="replaybtn" class="replay_button">
+      <i class="fas fa-reply"></i>
+      </span>
+     </div>
+
+     
+     <audio id="audio" src="musicii/Hawayein.mp3"></audio>
+    <audio id="audio1" src="musicii/gharchale.mp3"></audio>
+    <audio id="audio2" src="musicii/barish.mp3"></audio>
+       
+   
+
+</div>
+
+<script type="text/javascript">
+  
+  var audio=document.getElementById('audio');
+  var audio1=document.getElementById('audio1');
+  var audio2=document.getElementById('audio2');
+  var audio2=document.getElementById('audio2');
+  
+  var count=0;
+  var pre=0;
+  
+
+
+
+  function playpause(){
+    if (count==0) {
+      audio.play();
+      count++
+      document.getElementById('playlist_status').innerHTML="Song : Hawayein"
+      document.getElementById('playlist_artist').innerHTML="Artist :Arijit Singh,Sunidhi Chauhan"
+       document.getElementById('change').className="fas fa-pause"
+      
+      
+
+    }
+  };
+
+
+function next(){
+  if(count==1){
+    audio1.play();
+    audio.pause();
+    count++;
+    document.getElementById('playlist_status').innerHTML="Song :Chal ghar chale"
+    document.getElementById('playlist_artist').innerHTML="Artist :Arijit Singh"
+    document.getElementById('image').src="gharchale.jpg"
+
+  }else{
+    if (count==2) {
+      audio2.play();
+      audio.pause();
+      audio1.pause();
+      count++
+      document.getElementById('playlist_status').innerHTML="Song : Tumhe Barish "
+      document.getElementById('playlist_artist').innerHTML="Artist :Payal Dev"
+      document.getElementById('image').src="barish.jpg"
+    }
+  }
+}
+
+function prev(){
+  if (pre==0) {
+    audio2.play();
+    audio.pause();
+    audio1.pause();
+     document.getElementById('playlist_status').innerHTML="Song : Tumhe Barish "
+      document.getElementById('playlist_artist').innerHTML="Artist :Payal Dev"
+      document.getElementById('image').src="barish.jpg"
+    pre++;
+  }else{
+    if(pre==1){
+      audio1.play();
+      audio2.pause();
+      audio.pause();
+    document.getElementById('playlist_status').innerHTML="Song :Chal ghar chale"
+    document.getElementById('playlist_artist').innerHTML="Artist :Arijit Singh"
+    document.getElementById('image').src="gharchale.jpg"
+    }
+
+  }
+}
+
+
+function exit(){
+  window.close();
+}
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+
+ 
+</html>
